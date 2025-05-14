@@ -7,20 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 import vn.hoidanit.laptopshop.service.UserService;
 
 //MVC
-// @Controller
-// public class UserController {
-
-//     @RequestMapping("/")
-//     public String getHomePage() {
-//         return "Hello from controller";
-//     }
-
-// }
-
-@RestController
+@Controller
 public class UserController {
 
-    // DI: dependency injection
     private UserService userService;
 
     public UserController(UserService userService) {
@@ -29,7 +18,25 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage() {
-        return userService.handleHello();
+        return "eric.html";
     }
 
 }
+
+// API
+// @RestController
+// public class UserController {
+
+// // DI: dependency injection
+// private UserService userService;
+
+// public UserController(UserService userService) {
+// this.userService = userService;
+// }
+
+// @RequestMapping("/")
+// public String getHomePage() {
+// return userService.handleHello();
+// }
+
+// }
