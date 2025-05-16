@@ -28,8 +28,6 @@ public class UserController {
     @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
     public String creatUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         String test = this.userService.handleHello();
-        model.addAttribute("testStr", test);
-        model.addAttribute("message", "From Controller with Model");
         System.out.println("run here" + hoidanit);
         return "hello";
     }

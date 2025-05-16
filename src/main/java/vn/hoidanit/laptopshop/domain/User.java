@@ -1,6 +1,14 @@
 package vn.hoidanit.laptopshop.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity // Define a entity and auto create entity on mysql workbench
 public class User {
+    @Id // define ID is unique
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Define ID auto increment with type IDENTITY
     private long id;
     private String email;
     private String password;
