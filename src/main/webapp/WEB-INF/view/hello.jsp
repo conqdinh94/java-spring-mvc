@@ -18,7 +18,7 @@
 
 <body>
     <h1>Hello from JSP</h1>
-    <h2>${testStr}</h2>
+    <h2>${test}</h2>
     <h3 style="color: blueviolet;">${message}</h3>
     <button class="btn btn-warning">Submit</button>
     <!-- <button>Submit</button> -->
