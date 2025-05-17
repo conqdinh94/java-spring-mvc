@@ -1,5 +1,8 @@
 package vn.hoidanit.laptopshop.controller;
 
+import java.util.List;
+import java.util.Scanner;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,13 +22,47 @@ public class UserController {
         this.userService = userService;
     }
 
+    @RequestMapping("/")
+    public String getHomePage(Model model) {
+        Scanner sc = new Scanner(System.in);
+        List<User> listUser = userService.getAllUser();
+        System.out.println("List User:");
+        for (User user : listUser) {
+            System.out.println(user);
+        }
+
+        System.out.println();
+        List<User> listUserByEmail = userService.getAllUserByEmail("helio@example.com");
+        System.out.println("List User get by email:");
+        for (User user : listUserByEmail) {
+            System.out.println(user);
+        }
+
+        System.out.println();
+        List<User> listUserByEmailAndAddress = userService.getAllUserByEmailAndAddress("abc@gmail.com", "Quang Ninh");
+        System.out.println("List user get by email and address:");
+        for (User user : listUserByEmailAndAddress) {
+            System.out.println(user);
+        }
+
+        model.addAttribute("test", "eric");
+        model.addAttribute("message", "from controller with model");
+        return "hello";
+    }
+
     @RequestMapping("/admin/user")
-    public String requestMethodName(Model model) {
+    public String getTablePage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "admin/user/table";
+    }
+
+    @RequestMapping("/admin/user/create")
+    public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String creatUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         userService.handSaveUser(hoidanit);
         System.out.println("run here" + hoidanit);
