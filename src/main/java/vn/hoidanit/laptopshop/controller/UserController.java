@@ -52,7 +52,8 @@ public class UserController {
 
     @RequestMapping("/admin/user")
     public String getTablePage(Model model) {
-        model.addAttribute("newUser", new User());
+        List<User> listUser = this.userService.getAllUser();
+        model.addAttribute("listUser", listUser);
         return "admin/user/table";
     }
 
@@ -66,7 +67,9 @@ public class UserController {
     public String creatUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         userService.handSaveUser(hoidanit);
         System.out.println("run here" + hoidanit);
-        return "hello";
+        return "redirect:/admin/user";// redirect when not keep data
+        // return "forward:/admin/user";// forward when using model.Attribute() and keep data 
+
     }
 
 }
