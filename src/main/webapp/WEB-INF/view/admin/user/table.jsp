@@ -40,21 +40,12 @@
                                     <td>${user.fullName}</td>
                                     <td>
                                         <a class="btn btn-success" href="/admin/user/${user.id}">View</a>
-                                        <a class="btn btn-warning" href="">Update</a>
-                                        <a class="btn btn-danger" href="">Delete</a>
+                                        <a class="btn btn-warning" href="/admin/user/update/${user.id}">Update</a>
+                                        <a class="btn btn-danger" href="/admin/user/delete/${user.id}">Delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>
-                            <!-- <tr>
-                                <td>2</td>
-                                <td>tranvanb@gmail.com</td>
-                                <td>Tran Van B</td>
-                                <td>
-                                    <button class="btn btn-primary">View</button>
-                                    <button class="btn btn-warning">Update</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr> -->
+
                         </tbody>
                     </table>
                 </div>

@@ -9,18 +9,18 @@ import jakarta.persistence.Id;
 public class User {
     @Id // define ID is unique
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Define ID auto increment with type IDENTITY
-    private long id;
+    private int id;
     private String email;
     private String password;
     private String fullName;
     private String address;
     private String phone;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

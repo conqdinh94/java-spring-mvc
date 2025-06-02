@@ -32,4 +32,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User getUserById(int id) {
+        return userRepository.findById(id);
+    }
+
+    public void deleteUserById(int id) {
+        this.userRepository.deleteById(id);
+    }
+
 }

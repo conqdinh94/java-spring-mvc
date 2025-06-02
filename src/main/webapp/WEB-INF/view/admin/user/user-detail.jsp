@@ -27,19 +27,23 @@
                         <tbody>
                             <tr>
                                 <td>ID:</td>
-                                <td>1</td>
+                                <td>${user.id}</td>
                             </tr>
                             <tr>
                                 <td>Email:</td>
-                                <td>abc@gmail.com</td>
+                                <td>${user.email}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone:</td>
+                                <td>${user.phone}</td>
                             </tr>
                             <tr>
                                 <td>FullName:</td>
-                                <td>Tran Cong Dinh</td>
+                                <td>${user.fullName}</td>
                             </tr>
                             <tr>
                                 <td>Address:</td>
-                                <td>Bac Ninh</td>
+                                <td>${user.address}</td>
                             </tr>
                         </tbody>
                     </table>
