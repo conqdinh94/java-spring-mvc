@@ -6,6 +6,7 @@ import java.util.Scanner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import vn.hoidanit.laptopshop.domain.User;
@@ -57,6 +58,13 @@ public class UserController {
         return "admin/user/table";
     }
 
+    @RequestMapping("/admin/user/{id}")
+    public String getDetailUserPage(Model model, @PathVariable int id) {
+        System.out.println("check path id = " + id);
+        model.addAttribute("id", id);
+        return "admin/user/user-detail";
+    }
+
     @RequestMapping("/admin/user/create")
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
@@ -68,7 +76,8 @@ public class UserController {
         userService.handSaveUser(hoidanit);
         System.out.println("run here" + hoidanit);
         return "redirect:/admin/user";// redirect when not keep data
-        // return "forward:/admin/user";// forward when using model.Attribute() and keep data 
+        // return "forward:/admin/user";// forward when using model.Attribute() and keep
+        // data
 
     }
 
